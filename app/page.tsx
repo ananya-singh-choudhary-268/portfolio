@@ -1,65 +1,88 @@
-import Image from "next/image";
+import Navbar from "../components/navbar";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <main className="flex flex-col items-center justify-center bg-zinc-50 text-gray-900 dark:bg-black dark:text-gray-100 font-sans">
+      {/* Navbar stays fixed at the top */}
+      <Navbar />
+
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="flex min-h-screen w-full flex-col items-center justify-center px-6 text-center"
+      >
+        <h1 className="text-5xl font-bold mb-4">
+          Hi, I’m{" "}
+          <span className="text-indigo-600">Ananya Singh Choudhary</span>
+        </h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-xl">
+          A passionate Computer Science student exploring full-stack development
+          and AI/ML.
+        </p>
+      </section>
+
+      {/* About Section */}
+      <section
+        id="about"
+        className="min-h-screen w-full flex flex-col items-center justify-center px-6 text-center bg-gray-100 dark:bg-gray-900"
+      >
+        <h2 className="text-4xl font-semibold mb-6 text-indigo-600">
+          About Me
+        </h2>
+        <p className="max-w-2xl text-gray-700 dark:text-gray-300 text-lg">
+          I enjoy solving real-world problems through elegant, scalable, and
+          impactful solutions. Skilled in React, Next.js, Python, and Java —
+          always learning and building.
+        </p>
+      </section>
+
+      {/* Projects Section */}
+      <section
+        id="projects"
+        className="min-h-screen w-full flex flex-col items-center justify-center px-6 py-20 text-center"
+      >
+        <h2 className="text-4xl font-semibold mb-10 text-indigo-600">
+          Projects
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300">
+          Coming soon — this is where my best work will live 🚀
+        </p>
+      </section>
+
+      {/* Contact Section */}
+      <section
+        id="contact"
+        className="min-h-screen w-full flex flex-col items-center justify-center px-6 py-20 text-center bg-gray-100 dark:bg-gray-900"
+      >
+        <h2 className="text-4xl font-semibold mb-6 text-indigo-600">
+          Get in Touch
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+          Feel free to reach out via email or connect on LinkedIn!
+        </p>
+        <div className="flex gap-6">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:your.email@example.com"
+            className="text-indigo-600 hover:underline"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Email
           </a>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.linkedin.com/in/yourlinkedin"
             target="_blank"
-            rel="noopener noreferrer"
+            className="text-indigo-600 hover:underline"
           >
-            Documentation
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            className="text-indigo-600 hover:underline"
+          >
+            GitHub
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
