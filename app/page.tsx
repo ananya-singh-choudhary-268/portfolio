@@ -1,26 +1,23 @@
 import Hero from "@/components/hero";
-import Navbar from "../components/navbar";
+import Navbar from "@/components/navbar";
 import About from "@/components/about";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
+import ThreeBackground from "@/components/three-background";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center bg-zinc-50 text-gray-900 dark:bg-black dark:text-gray-100 font-sans">
-      {/* Navbar stays fixed at the top */}
-      <Navbar />
+    <>
+      {/* 3D Background - renders behind everything */}
+      <ThreeBackground />
 
-      {/* Hero Section */}
-      <Hero />
-
-      {/* About Section */}
-      <About />
-
-      {/* Projects Section */}
-      <Projects />
-
-      {/* Contact Section */}
-      <Contact />
-    </main>
+      <main className="relative flex flex-col items-center justify-center font-sans">
+        <Navbar />
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+    </>
   );
 }

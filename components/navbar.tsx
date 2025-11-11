@@ -1,52 +1,144 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import { Sun, Moon } from "lucide-react";
+
+import { useEffect, useState } from "react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  // Track current theme mode
+  const [isDark, setIsDark] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  // On mount: read existing theme (default to light)
+  useEffect(() => {
+    const html = document.documentElement;
+    const currentTheme = html.dataset.theme || "light";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsDark(currentTheme === "dark");
+  }, []);
+
+  // Toggle handler
+  const toggleTheme = () => {
+    const html = document.documentElement;
+    const newTheme = isDark ? "light" : "dark";
+    html.dataset.theme = newTheme;
+    setIsDark(!isDark);
+  };
+
+  // Close mobile menu when link is clicked
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/70 dark:bg-black/60 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
-        <a href="#home" className="font-bold text-lg hover:text-indigo-600">
-          Ananya.dev
-        </a>
+    <nav className="fixed top-0 left-0 w-full z-50 transition-colors duration-300">
+      {/* Glass navbar container */}
+      <div className="backdrop-blur-xl bg-white/10 dark:bg-black/30 border-b border-white/20 shadow-lg">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+          {/* Brand / Logo */}
+          <a
+            href="#home"
+            className="font-bold text-xl bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent hover:from-indigo-300 hover:to-purple-300 transition-all duration-300"
+          >
+            Ananya.dev
+          </a>
 
-        <div className="flex items-center gap-6">
-          {/* Navigation links */}
-          <div className="hidden md:flex gap-6">
-            <a href="#about" className="hover:text-indigo-600 transition">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {/* Navigation Links */}
+            <a
+              href="#about"
+              className="text-white/80 hover:text-indigo-400 transition-colors duration-200 font-medium"
+            >
               About
             </a>
-            <a href="#projects" className="hover:text-indigo-600 transition">
+            <a
+              href="#projects"
+              className="text-white/80 hover:text-indigo-400 transition-colors duration-200 font-medium"
+            >
               Projects
             </a>
-            <a href="#contact" className="hover:text-indigo-600 transition">
+            <a
+              href="#contact"
+              className="text-white/80 hover:text-indigo-400 transition-colors duration-200 font-medium"
+            >
               Contact
             </a>
+
+            {/* Theme Toggle Button */}
+            <button
+              type="button"
+              aria-label="Toggle theme"
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200 backdrop-blur-sm border border-white/20"
+            >
+              {isDark ? (
+                <Sun size={18} strokeWidth={2} className="text-yellow-300" />
+              ) : (
+                <Moon size={18} strokeWidth={2} className="text-indigo-400" />
+              )}
+            </button>
           </div>
 
-          {/* Theme toggle */}
-          <button
-            aria-label="Toggle theme"
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            title="Toggle dark / light"
-          >
-            {/* Wait until mounted so that server/client mismatch is prevented */}
-            {mounted ? (
-              theme === "dark" ? (
-                <Sun size={18} />
+          {/* Mobile Menu Button & Theme Toggle */}
+          <div className="md:hidden flex items-center gap-4">
+            {/* Theme Toggle for Mobile */}
+            <button
+              type="button"
+              aria-label="Toggle theme"
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200 backdrop-blur-sm border border-white/20"
+            >
+              {isDark ? (
+                <Sun size={18} strokeWidth={2} className="text-yellow-300" />
               ) : (
-                <Moon size={18} />
-              )
-            ) : null}
-          </button>
+                <Moon size={18} strokeWidth={2} className="text-indigo-400" />
+              )}
+            </button>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              type="button"
+              aria-label="Toggle mobile menu"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200 backdrop-blur-sm border border-white/20"
+            >
+              {mobileMenuOpen ? (
+                <X size={20} strokeWidth={2} className="text-white" />
+              ) : (
+                <Menu size={20} strokeWidth={2} className="text-white" />
+              )}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden backdrop-blur-xl bg-white/5 dark:bg-black/20 border-t border-white/10">
+            <div className="flex flex-col px-6 py-4 space-y-4">
+              <a
+                href="#about"
+                onClick={handleLinkClick}
+                className="text-white/80 hover:text-indigo-400 transition-colors duration-200 font-medium py-2"
+              >
+                About
+              </a>
+              <a
+                href="#projects"
+                onClick={handleLinkClick}
+                className="text-white/80 hover:text-indigo-400 transition-colors duration-200 font-medium py-2"
+              >
+                Projects
+              </a>
+              <a
+                href="#contact"
+                onClick={handleLinkClick}
+                className="text-white/80 hover:text-indigo-400 transition-colors duration-200 font-medium py-2"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

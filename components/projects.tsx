@@ -29,11 +29,10 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex flex-col justify-center items-center px-6 py-20 bg-white dark:bg-black text-center"
+      className="min-h-screen flex flex-col justify-center items-center px-6 py-20"
     >
-      {/* Section Heading */}
       <motion.h2
-        className="text-4xl font-bold mb-10 text-indigo-600"
+        className="text-5xl font-bold mb-12 text-indigo-400"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -41,27 +40,36 @@ export default function Projects() {
         Projects
       </motion.h2>
 
-      {/* Projects Grid */}
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="p-6 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-zinc-900 hover:shadow-lg transition"
+            className="backdrop-blur-xl bg-white/10 dark:bg-white/5 rounded-2xl p-6 flex flex-col justify-between h-full hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-white/20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
+            whileHover={{ y: -10 }}
           >
-            <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-            <p className="text-sm text-indigo-500 mb-2">{project.tech}</p>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              {project.description}
-            </p>
+            <div>
+              <h3 className="text-xl font-semibold mb-3 text-white">
+                {project.title}
+              </h3>
+              <p className="text-sm text-indigo-300 mb-3">{project.tech}</p>
+              <p className="text-white/70 mb-4 text-sm">
+                {project.description}
+              </p>
+            </div>
+
             <a
               href={project.link}
               target="_blank"
-              className="text-indigo-600 hover:underline font-medium"
+              rel="noopener noreferrer"
+              className="text-indigo-400 hover:text-indigo-300 font-medium mt-auto inline-flex items-center gap-2 group"
             >
-              View on GitHub →
+              View on GitHub
+              <span className="group-hover:translate-x-1 transition-transform">
+                →
+              </span>
             </a>
           </motion.div>
         ))}

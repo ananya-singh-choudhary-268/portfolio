@@ -1,26 +1,134 @@
+/* =========================================================
+   Tailwind Core Import (required for v4)
+   ========================================================= */
 @import "tailwindcss";
 
+/* =========================================================
+   Base Light Mode Variables
+   ========================================================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Main colors */
+  --color-background: #ffffff;
+  --color-foreground: #171717;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Font vars (Geist integration from layout.tsx) */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================================
+   Tailwind v4 Theme Variable Registration
+   (makes these CSS variables usable inside Tailwind utilities)
+   ========================================================= */
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* =========================================================
+   Manual Dark / Light Theme Modes
+   (controlled via <html data-theme="..."> in Navbar.tsx)
+   ========================================================= */
+
+/* Light mode */
+:root[data-theme="light"] {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+}
+
+/* Dark mode */
+:root[data-theme="dark"] {
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+}
+
+/* =========================================================
+   Global Element Defaults
+   ========================================================= */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================================
+   Utility & UX Enhancements
+   ========================================================= */
+
+/* Smooth fade for all elements when theme toggles */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Remove default scrollbars (optional aesthetic tweak) */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 10px;
+}
+
+/* Add these new sections to your existing globals.css */
+
+/* =========================================================
+   Glassmorphism Utilities
+   ========================================================= */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-dark {
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   Enhanced Dark Mode Variables (more dramatic)
+   ========================================================= */
+:root[data-theme="dark"] {
+  --color-background: #000000; /* Pure black for contrast */
+  --color-foreground: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="light"] {
+  --color-background: #f0f0f0; /* Slightly gray for depth */
+  --color-foreground: #171717;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================================
+   3D Canvas Background
+   ========================================================= */
+#canvas-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure content is above canvas */
+main > * {
+  position: relative;
+  z-index: 1;
 }
