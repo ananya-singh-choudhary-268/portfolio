@@ -7,21 +7,23 @@ export default function About() {
       id="about"
       className="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20"
     >
-      <div className="glass rounded-3xl p-12 max-w-4xl shadow-2xl">
+      <div className="backdrop-blur-xl bg-white/10 dark:bg-white/5 rounded-3xl p-12 max-w-4xl w-full shadow-2xl border border-white/20">
         <motion.h2
           className="text-5xl font-bold mb-6 text-indigo-400"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
           About Me
         </motion.h2>
 
         <motion.p
-          className="max-w-2xl text-lg leading-relaxed text-white/80"
+          className="max-w-2xl mx-auto text-lg leading-relaxed text-white/80"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
+          viewport={{ once: true }}
         >
           I&apos;m a Computer Science student at SKIT Jaipur, passionate about
           building intelligent, user-focused applications. I enjoy blending
@@ -34,6 +36,7 @@ export default function About() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
+          viewport={{ once: true }}
         >
           {[
             "Next.js",
