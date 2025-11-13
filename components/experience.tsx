@@ -23,7 +23,7 @@ const experiences = [
       "Simulated full SDLC for portfolio management system design",
       "Designed a multi-layer REST API and debugging workflow for a financial system",
     ],
-    color: "purple",
+    color: "indigo",
   },
   {
     company: "Standyou Data Info Labs Pvt Ltd",
@@ -34,7 +34,7 @@ const experiences = [
       "Conducted keyword analysis and optimized web content",
       "Achieved a 45% increase in organic traffic through strategic SEO implementation",
     ],
-    color: "pink",
+    color: "indigo",
   },
 ];
 
