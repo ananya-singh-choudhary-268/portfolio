@@ -7,9 +7,9 @@ export default function About() {
       id="about"
       className="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20"
     >
-      <div className="backdrop-blur-xl bg-white/10 dark:bg-white/5 rounded-3xl p-12 max-w-4xl w-full shadow-2xl border border-white/20">
+      <div className="backdrop-blur-[10px] bg-white/40 dark:bg-white/20 rounded-3xl p-12 max-w-4xl w-full shadow-2xl border border-white/30">
         <motion.h2
-          className="text-5xl font-bold mb-6 text-indigo-400"
+          className="text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -19,16 +19,16 @@ export default function About() {
         </motion.h2>
 
         <motion.p
-          className="max-w-2xl mx-auto text-lg leading-relaxed text-white/80"
+          className="max-w-2xl mx-auto text-lg leading-relaxed text-black"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
           viewport={{ once: true }}
         >
-          I&apos;m a Computer Science student at SKIT Jaipur, passionate about
-          building intelligent, user-focused applications. I enjoy blending
-          clean design with solid engineering — from sleek frontends to powerful
-          backend logic.
+          I&apos;m a final-year Computer Science student at SKIT Jaipur who loves
+          solving real-world problems with code. Whether it&apos;s training models
+          for forensics or crafting intuitive React interfaces, I focus on building
+          efficient, impactful solutions that actually work.
         </motion.p>
 
         <motion.div
@@ -39,17 +39,20 @@ export default function About() {
           viewport={{ once: true }}
         >
           {[
-            "Next.js",
-            "React",
-            "TypeScript",
             "Python",
+            "React.js",
+            "FastAPI",
+            "LangChain",
+            "OpenAI",
+            "PostgreSQL",
+            "TensorFlow",
+            "Docker",
+            "TypeScript",
             "Java",
-            "Machine Learning",
-            "Tailwind CSS",
           ].map((skill) => (
             <span
               key={skill}
-              className="px-5 py-2 bg-indigo-500/20 backdrop-blur-sm text-indigo-300 rounded-full text-sm font-medium border border-indigo-400/30 hover:bg-indigo-500/30 hover:scale-105 transition-all"
+              className="px-5 py-2 bg-indigo-500/20 backdrop-blur-sm text-indigo-700 rounded-full text-sm font-medium border border-indigo-400/30 hover:bg-indigo-500/30 hover:scale-105 transition-all"
             >
               {skill}
             </span>

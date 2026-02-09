@@ -1,16 +1,17 @@
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
 import About from "@/components/about";
+import Education from "@/components/education";
 import Experience from "@/components/experience";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
-import ThreeBackground from "@/components/three-background";
+import PressureFieldBackground from "@/components/pressure-field-background";
 
 export default function Home() {
   return (
     <>
-      {/* 3D Background - renders behind everything */}
-      <ThreeBackground />
+      {/* Pressure Field Background - subtle, almost-static */}
+      <PressureFieldBackground />
 
       <main className="relative flex flex-col items-center justify-center font-sans">
         {/* Navbar stays fixed at the top */}
@@ -21,6 +22,9 @@ export default function Home() {
 
         {/* About Section */}
         <About />
+
+        {/* Education Section */}
+        <Education />
 
         {/* Experience Section */}
         <Experience />

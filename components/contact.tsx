@@ -10,7 +10,7 @@ export default function Contact() {
     >
       {/* Glass container wrapper */}
       <motion.div
-        className="backdrop-blur-xl bg-white/10 dark:bg-white/5 rounded-3xl p-8 md:p-12 max-w-3xl w-full shadow-2xl border border-white/20"
+        className="backdrop-blur-[10px] bg-white/40 rounded-3xl p-8 md:p-12 max-w-3xl w-full shadow-2xl border border-white/30"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -38,14 +38,14 @@ export default function Contact() {
 
         {/* Short Message */}
         <motion.p
-          className="text-base md:text-lg mb-10 max-w-xl mx-auto text-white/80 leading-relaxed"
+          className="text-base md:text-lg mb-10 max-w-xl mx-auto text-black leading-relaxed"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
           viewport={{ once: true }}
         >
           Thanks for stopping by! Whether you&apos;d like to collaborate,
-          discuss tech, or just say hi — my inbox is always open. 💬
+          discuss tech, or just say hi — my inbox is always open.
         </motion.p>
 
         {/* Contact Links */}
@@ -61,7 +61,7 @@ export default function Contact() {
             href="mailto:ananysingh268@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-6 py-3 bg-indigo-500/20 backdrop-blur-sm rounded-xl border border-indigo-400/30 hover:bg-indigo-500/40 hover:border-indigo-400/60 transition-all duration-300 text-white shadow-lg"
+            className="group flex items-center gap-3 px-6 py-3 bg-indigo-500/20 backdrop-blur-sm rounded-xl border border-indigo-400/30 hover:bg-indigo-500/40 hover:border-indigo-400/60 transition-all duration-300 text-gray-900 shadow-lg"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -74,7 +74,7 @@ export default function Contact() {
             href="https://www.linkedin.com/in/ananya-singh-choudhary/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-6 py-3 bg-blue-500/20 backdrop-blur-sm rounded-xl border border-blue-400/30 hover:bg-blue-500/40 hover:border-blue-400/60 transition-all duration-300 text-white shadow-lg"
+            className="group flex items-center gap-3 px-6 py-3 bg-blue-500/20 backdrop-blur-sm rounded-xl border border-blue-400/30 hover:bg-blue-500/40 hover:border-blue-400/60 transition-all duration-300 text-gray-900 shadow-lg"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -87,7 +87,7 @@ export default function Contact() {
             href="https://github.com/ananya-singh-choudhary-268"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-6 py-3 bg-purple-500/20 backdrop-blur-sm rounded-xl border border-purple-400/30 hover:bg-purple-500/40 hover:border-purple-400/60 transition-all duration-300 text-white shadow-lg"
+            className="group flex items-center gap-3 px-6 py-3 bg-purple-500/20 backdrop-blur-sm rounded-xl border border-purple-400/30 hover:bg-purple-500/40 hover:border-purple-400/60 transition-all duration-300 text-gray-900 shadow-lg"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -114,7 +114,7 @@ export default function Contact() {
 
         {/* Footer Text */}
         <motion.p
-          className="text-sm mt-12 text-white/50"
+          className="text-sm mt-12 text-gray-600"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}

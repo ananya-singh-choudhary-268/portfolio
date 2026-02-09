@@ -7,8 +7,8 @@
    Base Light Mode Variables
    ========================================================= */
 :root {
-  /* Main colors */
-  --color-background: #ffffff;
+  /* Main colors - Warm off-white (coffee-white) */
+  --color-background: #FAF7F2;
   --color-foreground: #171717;
 
   /* Font vars (Geist integration from layout.tsx) */
@@ -26,6 +26,12 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 }
+
+/* =========================================================
+   Tailwind v4 Dark Mode Variant Configuration
+   ========================================================= */
+@variant dark (:where([data-theme="dark"]) *);
+
 
 /* =========================================================
    Manual Dark / Light Theme Modes

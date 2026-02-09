@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class", // Enables dark mode toggling via next-themes
+  darkMode: ['selector', '[data-theme="dark"]'], // Use data-theme attribute for dark mode
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",

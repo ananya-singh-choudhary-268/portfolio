@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Particle class - moved outside component
 class Particle {
@@ -113,6 +113,7 @@ class Particle {
 
 export default function ThreeBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [theme, setTheme] = useState<string>("light");
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -126,6 +127,26 @@ export default function ThreeBackground() {
     const mouse = { x: 0, y: 0 };
     const connectionDistance = 150;
     const mouseRadius = 200;
+
+    // Theme detection
+    const getTheme = () => {
+      return document.documentElement.dataset.theme || "light";
+    };
+
+    // Set initial theme
+    setTheme(getTheme());
+
+    // Observer to watch for theme changes
+    const observer = new MutationObserver(() => {
+      setTheme(getTheme());
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    let currentTheme = getTheme();
 
     // Set canvas size
     const resizeCanvas = () => {
@@ -256,8 +277,18 @@ export default function ThreeBackground() {
 
     // Animation loop
     const animate = () => {
-      // Create trailing effect
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      // Check if theme changed
+      const newTheme = getTheme();
+      if (newTheme !== currentTheme) {
+        currentTheme = newTheme;
+      }
+
+      // Create trailing effect with theme-aware color
+      if (currentTheme === "dark") {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      } else {
+        ctx.fillStyle = "rgba(240, 240, 240, 0.1)";
+      }
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Update and draw
@@ -299,6 +330,7 @@ export default function ThreeBackground() {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
+      observer.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -306,7 +338,11 @@ export default function ThreeBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10 bg-gradient-to-br from-black via-gray-900 to-black"
+      className={`fixed top-0 left-0 w-full h-full -z-10 transition-colors duration-500 ${
+        theme === "dark"
+          ? "bg-gradient-to-br from-black via-gray-900 to-black"
+          : "bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100"
+      }`}
       style={{ pointerEvents: "none" }}
     />
   );
