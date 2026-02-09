@@ -114,7 +114,7 @@ export default function PressureFieldBackground() {
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
-      ctx.scale(dpr, dpr);
+      if (ctx) ctx.scale(dpr, dpr);
 
       initElements();
     }
@@ -125,6 +125,7 @@ export default function PressureFieldBackground() {
     }
 
     function drawMatrixColumn(column: MatrixColumn) {
+      if (!ctx) return;
       const fontSize = 14;
       ctx.font = `${fontSize}px "Courier New", monospace`;
 
@@ -170,6 +171,7 @@ export default function PressureFieldBackground() {
     }
 
     function render() {
+      if (!ctx) return;
       // Soft gradient background
       const gradient = ctx.createLinearGradient(0, 0, width, height);
       gradient.addColorStop(0, "#fafbfc");
