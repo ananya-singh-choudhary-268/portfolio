@@ -112,14 +112,14 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-block backdrop-blur-sm bg-white/10 text-gray-900 px-8 py-4 rounded-xl text-lg font-medium hover:bg-white/20 hover:scale-105 transition-all shadow-lg border border-gray-400"
+            className="inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-indigo-600 hover:to-purple-600 hover:scale-105 transition-all shadow-lg"
           >
             Get in Touch!
           </a>
           <a
             href="/resume.pdf"
             download
-            className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/10 text-gray-900 px-8 py-4 rounded-xl text-lg font-medium hover:bg-white/20 hover:scale-105 transition-all shadow-lg border border-gray-400"
+            className="inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-indigo-600 hover:to-purple-600 hover:scale-105 transition-all shadow-lg"
           >
             <Download className="w-5 h-5" />
             Resume
