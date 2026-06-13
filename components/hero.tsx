@@ -99,27 +99,27 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          className="flex flex-wrap gap-4 justify-center"
+          className="flex flex-wrap gap-6 justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <a
             href="#projects"
-            className="inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-indigo-600 hover:to-purple-600 hover:scale-105 transition-all shadow-lg"
+            className="inline-flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-indigo-600 hover:to-purple-600 hover:scale-105 transition-all shadow-lg"
           >
             View My Work!
           </a>
           <a
             href="#contact"
-            className="inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-indigo-600 hover:to-purple-600 hover:scale-105 transition-all shadow-lg"
+            className="inline-flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-indigo-600 hover:to-purple-600 hover:scale-105 transition-all shadow-lg"
           >
             Get in Touch!
           </a>
           <a
             href="/resume.pdf"
             download
-            className="inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-indigo-600 hover:to-purple-600 hover:scale-105 transition-all shadow-lg"
+            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-indigo-600 hover:to-purple-600 hover:scale-105 transition-all shadow-lg"
           >
             <Download className="w-5 h-5" />
             Resume
