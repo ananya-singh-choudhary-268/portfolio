@@ -16,7 +16,7 @@ const projects = [
     duration: "Jul 2025 – Sep 2025",
     description:
       "Created a GenAI RAG platform to extract insights from over 5,000 documents using multilingual OCR. The system automates summarization and Q&A, slashing manual review time by 80%.",
-    link: "https://github.com/ananya-singh-choudhary-268/smart-document-insight-generator",
+    link: "https://github.com/ananya-singh-choudhary-268",
   },
   {
     title: "Intuitive Brightness Control",
@@ -24,7 +24,7 @@ const projects = [
     duration: "Jan 2025 – Mar 2025",
     description:
       "Developed a desktop app for gesture-based brightness control in real time. This tool improves accessibility and reduces the need for manual adjustments by nearly 70%.",
-    link: "https://github.com/ananya-singh-choudhary-268/brightness-control",
+    link: "https://github.com/ananya-singh-choudhary-268",
   },
   {
     title: "Indian Sign Language Translator",
@@ -32,7 +32,7 @@ const projects = [
     duration: "Nov 2024 – Dec 2024",
     description:
       "Trained a CNN model on over 2,000 gesture samples to translate ISL to text with 80%+ accuracy. Deployed a mobile prototype to help bridge communication gaps for the hearing impaired.",
-    link: "https://github.com/ananya-singh-choudhary-268/isl-translator",
+    link: "https://github.com/ananya-singh-choudhary-268",
   },
 ];
 

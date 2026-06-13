@@ -4,6 +4,17 @@ import { Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
+    company: "FOUNDO.IN",
+    role: "Full Stack Engineer",
+    duration: "June 2026 – Present",
+    type: "Full time",
+    description: [
+      "Spearheaded the architecture and full-stack development of India’s startup connection platform from the ground up using Next.js, TypeScript, Supabase, Prisma, and Clerk.",
+      "Engineered the end-to-end infrastructure, establishing CI/CD pipelines via Vercel and designing a normalized PostgreSQL production database on Supabase.",
+    ],
+    color: "indigo",
+  },
+  {
     company: "Imagitime",
     role: "Software Developer Intern",
     duration: "Jul 2025 – Sep 2025",
