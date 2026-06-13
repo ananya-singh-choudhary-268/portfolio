@@ -87,7 +87,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          Final-year B.Tech Computer Science student specializing in Generative AI/ML and Full-Stack Development.{" "}
+          Computer Science & Engineering graduate specializing in Generative AI/ML and Full-Stack Development.{" "}
           <span className="text-indigo-600 font-semibold">
             SIH 2025 Winner
           </span>{" "}

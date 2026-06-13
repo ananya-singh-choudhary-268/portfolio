@@ -25,10 +25,7 @@ export default function About() {
           transition={{ delay: 0.2, duration: 0.8 }}
           viewport={{ once: true }}
         >
-          I&apos;m a final-year Computer Science student at SKIT Jaipur who loves
-          solving real-world problems with code. Whether it&apos;s training models
-          for forensics or crafting intuitive React interfaces, I focus on building
-          efficient, impactful solutions that actually work.
+          I&apos;m a Computer Science & Engineering graduate from SKIT Jaipur who builds software to solve real problems. From training machine learning models for forensics to designing clean React interfaces, my focus is on writing efficient code and shipping solutions that actually make an impact.
         </motion.p>
 
         <motion.div
